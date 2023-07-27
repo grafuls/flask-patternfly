@@ -2,7 +2,7 @@
 Flask PatternFly
 ======================
 
-* Free software: MIT license
+* Free software: GPLv3
 
 Features
 --------
