@@ -1,0 +1,253 @@
+{% macro about_modal(img_path, title, content, footer) -%}
+<div
+  class="pf-v5-c-about-modal-box"
+  style="--pf-v5-c-about-modal-box--BackgroundImage: url('{{img_path}}')"
+>
+  <div class="pf-v5-c-about-modal-box__close">
+    <button
+      class="pf-v5-c-button pf-m-plain"
+      type="button"
+      aria-label="Close dialog"
+    >
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="pf-v5-c-about-modal-box__header">
+    <h1 class="pf-v5-c-title pf-m-4xl" id="about-modal-title">{{title}}</h1>
+  </div>
+  <div class="pf-v5-c-about-modal-box__content">
+    <div class="pf-v5-c-about-modal-box__body">{{content}}</div>
+    <p
+      class="pf-v5-c-about-modal-box__strapline"
+    >{{footer}}</p>
+  </div>
+</div>
+{%- endmacro %}
+
+
+{% macro accordion(items) -%}
+  <div class="pf-v5-c-accordion">
+    {% for title, content in items.items() %}
+    <h3>
+      <button
+        class="pf-v5-c-accordion__toggle"
+        type="button"
+        aria-expanded="false"
+      >
+        <span class="pf-v5-c-accordion__toggle-text">{{title}}</span>
+  
+        <span class="pf-v5-c-accordion__toggle-icon">
+          <i class="fas fa-angle-right" aria-hidden="true"></i>
+        </span>
+      </button>
+    </h3>
+    <div class="pf-v5-c-accordion__expandable-content" hidden>
+      <div class="pf-v5-c-accordion__expandable-content-body">{{content}}</div>
+    </div>
+    {% endfor %}
+  </div>
+{%- endmacro %}
+
+
+{% macro alert(content, alert='custom', alerts = {
+    'custom': 'fa-bell',
+    'info': 'fa-info-circle',
+    'success': 'fa-check-circle',
+    'warning': 'fa-exclamation-triangle',
+    'danger': 'fa-exclamation-circle',
+}) -%}
+  <div class="pf-v5-c-alert pf-m-custom" aria-label="Custom alert">
+    <div class="pf-v5-c-alert__icon">
+      <i class="fas fa-fw {{alerts.get(alert)}}" aria-hidden="true"></i>
+    </div>
+    <p class="pf-v5-c-alert__title">
+      <span class="pf-v5-screen-reader"></span>
+      {{content}}
+    </p>
+    <div class="pf-v5-c-alert__action">
+      <button
+        class="pf-v5-c-button pf-m-plain"
+        type="button"
+        aria-label="Close alert"
+      >
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+{%- endmacro %}
+
+
+{% macro avatar(image_path) -%}
+<img
+  class="pf-v5-c-avatar"
+  alt="Avatar image"
+  src="{{image_path}}"
+/>
+{%- endmacro %}
+
+
+{% macro back_to_top(text='Back to top') -%}
+<div class="pf-v5-c-back-to-top">
+    <a class="pf-v5-c-button pf-m-primary" href="#">
+      {{text}}
+      <span class="pf-v5-c-button__icon pf-m-end">
+        <i class="fas fa-angle-up" aria-hidden="true"></i>
+      </span>
+    </a>
+  </div>
+{%- endmacro %}
+
+
+{% macro backdrop() -%}
+<div class="pf-v5-c-backdrop"></div>
+{%- endmacro %}
+
+
+{% macro background_image(image_path) -%}
+<div
+  class="pf-v5-c-background-image"
+  style="--pf-v5-c-background-image--BackgroundImage: url('{{image_path}}'})"
+></div>
+{%- endmacro %}
+
+
+{% macro badge(text) -%}
+<span class="pf-v5-c-badge pf-m-unread">{{text}}</span>
+{%- endmacro %}
+
+
+{% macro banner(text) -%}
+<div class="pf-v5-c-banner">{{text}}</div>
+{%- endmacro %}
+
+
+{% macro brand(image_path) -%}
+<img
+  class="pf-v5-c-brand"
+  src="{{image_path}}"
+/>
+{%- endmacro %}
+
+
+{% macro breacrumb(items) -%}
+<nav class="pf-v5-c-breadcrumb" aria-label="breadcrumb">
+    <ol class="pf-v5-c-breadcrumb__list" role="list">
+      {% for section, link in items.items() %}
+      <li class="pf-v5-c-breadcrumb__item">
+        <span class="pf-v5-c-breadcrumb__item-divider">
+          <i class="fas fa-angle-right" aria-hidden="true"></i>
+        </span>
+        <a href="{{link}}" class="pf-v5-c-breadcrumb__link">{{section}}</a>
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{%- endmacro %}
+
+
+{% macro button(content, level="primary") -%}
+<button class="pf-v5-c-button pf-m-{{level}}" type="button">{{content}}</button>
+{%- endmacro %}
+
+
+{% macro card(title, body, footer) -%}
+<div class="pf-v5-c-card" id="card-basic-example">
+    <div class="pf-v5-c-card__title">
+      <h2 class="pf-v5-c-card__title-text">{{title}}</h2>
+    </div>
+    <div class="pf-v5-c-card__body">{{body}}</div>
+    <div class="pf-v5-c-card__footer">{{footer}}</div>
+  </div>
+{%- endmacro %}
+
+
+{% macro checkbox(content) -%}
+<div class="pf-v5-c-check">
+    <input
+      class="pf-v5-c-check__input"
+      type="checkbox"
+      id="check-basic"
+      name="check-basic"
+    />
+  
+    <label class="pf-v5-c-check__label" for="check-basic">{{content}}</label>
+  </div>
+{%- endmacro %}
+
+
+{% macro chip(content) -%}
+<div class="pf-v5-c-chip">
+    <span class="pf-v5-c-chip__content">
+      <span class="pf-v5-c-chip__text" id="chip_one">{{content}}</span>
+    </span>
+    <span class="pf-v5-c-chip__actions">
+      <button
+        class="pf-v5-c-button pf-m-plain"
+        type="button"
+        aria-labelledby="remove_chip_one chip_one"
+        aria-label="Remove"
+        id="remove_chip_one"
+      >
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </span>
+  </div>
+{%- endmacro %}
+
+
+{% macro clipboard_copy(content) -%}
+<div class="pf-v5-c-clipboard-copy">
+  <div class="pf-v5-c-clipboard-copy__group">
+    <span class="pf-v5-c-form-control pf-m-readonly">
+      <input
+        readonly
+        type="text"
+        value="{{content}}"
+        id="basic-readonly-text-input"
+        aria-label="Copyable input"
+      />
+    </span>
+    <button
+      class="pf-v5-c-button pf-m-control"
+      type="button"
+      aria-label="Copy to clipboard"
+      id="basic-readonly-copy-button"
+      aria-labelledby="basic-readonly-copy-button basic-readonly-text-input"
+    >
+      <i class="fas fa-copy" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+{%- endmacro %}
+
+
+{% macro code_block(content) -%}
+<div class="pf-v5-c-code-block">
+    <div class="pf-v5-c-code-block__header">
+      <div class="pf-v5-c-code-block__actions">
+        <div class="pf-v5-c-code-block__actions-item">
+          <button
+            class="pf-v5-c-button pf-m-plain"
+            type="button"
+            aria-label="Copy to clipboard"
+          >
+            <i class="fas fa-copy" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="pf-v5-c-code-block__actions-item">
+          <button
+            class="pf-v5-c-button pf-m-plain"
+            type="button"
+            aria-label="Run in Web Terminal"
+          >
+            <i class="fas fa-play" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="pf-v5-c-code-block__content">
+      <pre class="pf-v5-c-code-block__pre"><code class="pf-v5-c-code-block__code">{{content}}</code>
+  </pre>
+    </div>
+  </div>
+{%- endmacro %}
