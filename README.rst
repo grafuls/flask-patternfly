@@ -7,13 +7,18 @@ Flask PatternFly
 Usage
 -----
 
-Here is an example::
+Here is an example on your app init::
 
   from flask_patternfly import Patternfly
 
   [...]
 
   Patternfly(app)
+
+Here is an example on your jinja template::
+  
+  {% import "patternfly/components.html" as components %}
+  {{ components.chip("This is a patternfly chip") }}
 
 Sample app
 ----------
