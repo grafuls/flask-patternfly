@@ -17,8 +17,12 @@ Here is an example on your app init::
 
 Here is an example on your jinja template::
   
-  {% import "patternfly/components.html" as components %}
-  {{ components.chip("This is a patternfly chip") }}
+  {% extends "patternfly/base.html" %}
+
+  {% block content %}
+    {% import "patternfly/components.html" as components %}
+    {{ components.chip("This is a patternfly chip") }}
+  {% endblock %}
 
 Sample app
 ----------
