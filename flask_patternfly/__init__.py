@@ -23,5 +23,4 @@ class Patternfly:
             static_folder='static',
             static_url_path=app.static_url_path + '/patternfly',
         )
-
         app.register_blueprint(blueprint)

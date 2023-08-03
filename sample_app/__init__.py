@@ -11,7 +11,6 @@
 #
 # Afterwards, point your browser to http://localhost:5000, then check out the
 # source.
-import ipdb;ipdb.set_trace()
 
 from flask import Flask
 from flask_patternfly import Patternfly
@@ -32,7 +31,5 @@ def create_app():
     # application factory. We already imported the blueprint, now we just need
     # to register it:
     app.register_blueprint(frontend)
-
-
 
     return app

@@ -1,40 +1,36 @@
 {% block doc -%}
   <!DOCTYPE html>
   <html{% block html_attribs %}{% endblock html_attribs %}>
-  {%- block html %}
+  {% block html %}
     <head>
-      {%- block head %}
+      {% block head %}
       <title>{% block title %}{{title|default}}{% endblock title %}</title>
 
-      {%- block metas %}
+      {% block metas %}
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      {%- endblock metas %}
-%}
+      {% endblock metas %}
 
-      {%- block styles %}
-      <link rel%}="stylesheet" type="text/css" href="{{ url_for('static', filename='patternlfy/css/patternfly.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='patternlfy/css/patternfly-addons.css') }}">
-      {%- endblock styles %}
-      {%- endblock head %}
+      {% block styles %}
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='patternfly/css/patternfly.min.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='patternfly/css/patternfly-addons.css') }}">
+      {% endblock styles %}
+      {% endblock head %}
     </head>
 
     <body{% block body_attribs %}{% endblock body_attribs %}>
     {% block body -%}
       {% block navbar %}
-      {%- endblock navbar %}
+      {% endblock navbar %}
 
       {% block content -%}
-      {%- endblock content %}
+      {% endblock content %}
 
       {% block scripts %}
 
-      {% comment %} <script type="text/javascript" 
-              src="{{ url_for('static',filename='js/patternfly.min.js')}}"></script> {% endcomment %}
+      {% endblock scripts %}
 
-      {%- endblock scripts %}
-
-    {%- endblock body %}
+    {% endblock body %}
     </body>
-  {%- endblock html %}
+  {% endblock html %}
   </html>
 {% endblock doc -%}

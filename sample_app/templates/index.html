@@ -1,19 +1,20 @@
 
-{%- extends "base.html" %}
-
-{% import "patternfly/components.html" as components %}
+{% extends "base.html" %}
 
 {% block content %}
   <div class="container">
     <div class="jumbotron">
-      <h1>Welcome to Flask-Bootstrap</h1>
-      <p>This example application demonstrates some (but not all!) of the
-      features of <a href="http://pythonhosted.org/Flask-Bootstrap">
-      Flask-Bootstrap</a>.</p>
-      <p>
-        <a class="btn btn-lg btn-default" role="button"
-           href="http://pythonhosted.org/Flask-Bootstrap" >Show docs</a>
-      </p>
+      <h2>Welcome to Flask-Patternfly</h2>
+
+      {% import "patternfly/components.html" as components %}
+      </br>
+      {{ components.chip("This is a patternfly chip") }}
+      </br>
+      {{ components.alert("This is a patternfly alert") }}
+      </br>
+      {{ components.badge("This is a patternfly badge") }}
+      </br>
+
     </div>
    </div>
 {%- endblock %}
