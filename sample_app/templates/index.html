@@ -4,17 +4,20 @@
 {% block content %}
   <div class="container">
     <div class="jumbotron">
-      <h2>Welcome to Flask-Patternfly</h2>
+      <h1>Welcome to Flask-Patternfly</h1>
+      </br>
 
       {% import "patternfly/components.html" as components %}
-      </br>
-      {{ components.chip("This is a patternfly chip") }}
-      </br>
-      {{ components.alert("This is a patternfly alert") }}
-      </br>
-      {{ components.badge("This is a patternfly badge") }}
-      </br>
+      {% set chip = components.chip("This is a patternfly chip") %}
+      {% set alert_custom = components.alert("This is a patternfly alert") %}
+      {% set alert_danger = components.alert("This is a patternfly dangerous alert", alert="danger") %}
+      {% set badge = components.badge("This is a patternfly badge") %}
+      {% set card = components.card("Card Title", "This is a patternfly card", "Made with Flask-Patternfly") %}
+      {% set elements = [chip, alert_custom, alert_danger, badge, card ] %}
+
+      {% import "patternfly/layouts.html" as layouts %}
+      {{ layouts.grid(elements) }}
 
     </div>
    </div>
-{%- endblock %}
+{% endblock %}
