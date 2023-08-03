@@ -4,13 +4,28 @@ Flask PatternFly
 
 * Free software: GPLv3
 
-Features
---------
-* Creating Main Extension Class
-* Extension specific tests
-* Testing setup with ``unittest`` and ``python setup.py test`` or ``py.test``
-* Travis-CI_: Ready for Travis Continuous Integration testing
-* Tox_ testing: Setup to easily test for Python 2.6, 2.7, 3.3, 3.4, 3.5
-* Sphinx_ docs: Documentation ready for generation with, for example, ReadTheDocs_
-* Bumpversion_: Pre-configured version bumping with a single command
-* Auto-release to PyPI_ when you push a new tag to master (optional)
+Usage
+-----
+
+Here is an example::
+
+  from flask_patternfly import Patternfly
+
+  [...]
+
+  Patternfly(app)
+
+Sample app
+----------
+
+Here is how to run it on a virtual environment::
+
+    cd flask-patternfly
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python setup.py install
+    PYTHONPATH=$PYTHONPATH:/flask_patternfly/ flask --app=sample_app run --port=5001
+
+
+Navigate to http://127.0.0.1:5001/
